@@ -1,0 +1,59 @@
+@startuml
+
+Glide -> RequestManager: with
+Glide --> Glide: get(context)
+Glide --> Glide: checkAndInitializeGlide(context)
+Glide --> Glide: initializeGlide(context, GlideBuilder builder)
+Glide --> GlideBuilder: build(context)
+GlideBuilder --> GlideBuilder: new Executor
+GlideBuilder --> GlideBuilder: new engine
+GlideBuilder --> GlideBuilder: new bitmapPool
+GlideBuilder --> Glide: new Glide
+
+
+RequestManager -> RequestBuilder: asDrawable,asBitmap,asGif
+RequestManager -> RequestBuilder: new RequestBuilder
+RequestManager --> RequestBuilder: load
+
+
+RequestBuilder -> RequestBuilder: into
+RequestBuilder -> Request: buildRequest
+RequestBuilder -> Request: buildRequestRecursive
+RequestBuilder -> Request: buildThumbnailRequestRecursive
+RequestBuilder -> Request: new RequestCoordinator(parentCoordinator)
+RequestBuilder -> Request: obtainRequest
+Request -> SingleRequest: obtain
+SingleRequest -> SingleRequest: init
+SingleRequest -> SingleRequest: runRequest(request)
+SingleRequest -> SingleRequest: begin()
+SingleRequest -> SingleRequest: onSizeReady(overrideWidth, overrideHeight)
+SingleRequest -> Engine: load(overrideWidth, overrideHeight)
+Engine -> Engine: loadFromActiveResources(key, isMemoryCacheable)
+Engine -> Engine: loadFromCache(key, isMemoryCacheable)
+Engine -> Engine: build() EngineJob
+Engine -> Engine: build() DecodeJob
+Engine -> DecodeJob: start(decodeJob)
+DecodeJob -> DecodeJob: run()
+DecodeJob -> DecodeJob: runWrapped()
+DecodeJob -> DecodeJob: DECODE_DATA:decodeFromRetrievedData()
+DecodeJob -> DecodeJob: decodeFromData()
+DecodeJob -> DecodeJob: decodeFromFetcher()
+DecodeJob -> DecodeJob: runLoadPath()
+DecodeJob -> LoadPath: loadWithExceptionList()
+LoadPath -> DecodePath: decode()
+DecodePath -> DecodePath: decodeResourceWithList()
+DecodePath -> ResourceDecoder: decode()
+ResourceDecoder -> BitmapDrawableDecoder: decode()
+BitmapDrawableDecoder -> ByteBufferBitmapDecoder: decode()
+ByteBufferBitmapDecoder -> Downsampler: decode()
+Downsampler -> Downsampler: decodeFromWrappedStreams()
+Downsampler -> Downsampler: decodeStream()
+Downsampler -> DecodeJob: notifyEncodeAndRelease()
+DecodeJob -> EngineJob: onResourceReady()
+EngineJob -> Target: onResourceReady()
+Target -> ImageViewTarget: setResource()
+ImageViewTarget -> BitmapImageViewTarget: view.setImageBitmap()
+
+
+
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+
+
+class Model
+class Data
+class Resource
+class TranscodedResource
+
+Model -right-|> Data
+Data -right-|> Resource
+Resource -right-|> TranscodedResource
+
+
+@enduml

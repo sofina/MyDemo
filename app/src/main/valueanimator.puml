@@ -1,0 +1,37 @@
+@startuml
+ValueAnimator --> ValueAnimator: start(playBackwards) animation should play in reverse
+ValueAnimator --> ValueAnimator: 1, check Loopper Thread
+ValueAnimator --> AnimationHandler: 2, add mAnimationCallbacks (doAnimationFrame)
+ValueAnimator --> ValueAnimator: 3, no delay startAnimation, setCurrentPlayTime mSeekFraction startAnimation
+ValueAnimator --> ValueAnimator: 4, has delay reset startTime in doAnimationFrame startAnimation
+ValueAnimator --> ValueAnimator: [doAnimationFrame]
+ValueAnimator --> ValueAnimator: 5, has delay reset startTime
+ValueAnimator --> ValueAnimator: 6, mPaused ? removeAnimationCallback
+ValueAnimator --> ValueAnimator: 7, mResumed ? Offset duration time
+ValueAnimator --> ValueAnimator: 8, 如果没有running,有start delay, delay时间到，开始动画??
+ValueAnimator --> ValueAnimator: [animateBasedOnTime]
+ValueAnimator --> ValueAnimator: newIteration && !lastIterationFinished 继续repeat
+ValueAnimator --> ValueAnimator: shouldPlayBackward(int iteration, boolean inReverse)
+ValueAnimator --> ValueAnimator: REVERSE 且 次数没达到 且 iteration 为单数， shouldPlayBackward = true
+ValueAnimator --> ValueAnimator: getCurrentIterationFraction():若 PlayBackward, iteration will go from 1f to 0f.
+ValueAnimator --> ValueAnimator: animateValue()
+ValueAnimator --> ValueAnimator: calculateValue() 更新属性
+ValueAnimator --> ValueAnimator: onAnimationUpdate() 通知更新
+
+
+ValueAnimator --> ValueAnimator: end()
+ValueAnimator --> ValueAnimator: REVERSE 且 次数没达到 且 iteration 为单数， shouldPlayBackward = true 否则为 false
+ValueAnimator --> ValueAnimator: fraction = shouldPlayBackward ? 0 : 1
+ValueAnimator --> ValueAnimator: animateValue(fraction)
+ValueAnimator --> ValueAnimator: animateValue()
+ValueAnimator --> ValueAnimator: calculateValue() 更新属性
+ValueAnimator --> ValueAnimator: onAnimationUpdate() 通知更新
+ValueAnimator --> ValueAnimator: endAnimation()
+ValueAnimator --> ValueAnimator: removeAnimationCallback()
+
+
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+@enduml

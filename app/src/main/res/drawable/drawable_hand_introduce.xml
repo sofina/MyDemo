@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:drawable="@drawable/hand_introduce_00" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_01" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_02" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_03" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_04" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_05" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_06" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_07" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_08" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_09" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_10" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_11" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_12" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_13" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_14" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_15" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_16" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_17" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_18" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_19" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_20" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_21" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_22" android:duration="42"/>
+    <item android:drawable="@drawable/hand_introduce_23" android:duration="42"/>
+</animation-list>

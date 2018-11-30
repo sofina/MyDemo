@@ -1,0 +1,44 @@
+@startuml
+
+
+class RequestManager
+class ActivityFragmentLifecycle
+class RequestManagerFragment
+interface Lifecycle
+interface LifecycleListener
+
+LifecycleListener <|-- RequestManager
+Lifecycle <|-- ActivityFragmentLifecycle
+Fragment <|-- RequestManagerFragment
+ActivityFragmentLifecycle -right- RequestManagerFragment
+RequestManager -right- ActivityFragmentLifecycle
+
+
+interface Lifecycle {
+addListener()
+removeListener()
+}
+
+interface LifecycleListener {
+onStart()
+onStop()
+onDestroy()
+}
+
+class RequestManager {
+onStart()
+onStop()
+onDestroy()
+}
+
+class RequestManagerFragment {
+onAttach()
+onDetach()
+onStart()
+onStop()
+onDestroy()
+}
+
+
+
+@enduml
