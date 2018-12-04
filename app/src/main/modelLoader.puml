@@ -1,0 +1,8 @@
+@startuml
+
+
+
+(Data)-right-> (Resource)
+
+
+@enduml

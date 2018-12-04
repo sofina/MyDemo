@@ -1,0 +1,7 @@
+@startuml
+
+
+(LruResourceCache)
+(LruBitmapCache)
+(DiskLruCache)
+@enduml

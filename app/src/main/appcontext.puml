@@ -1,0 +1,38 @@
+@startuml
+
+
+class RequestManager
+class ApplicationLifecycle
+interface Lifecycle
+interface LifecycleListener
+
+LifecycleListener <|-- RequestManager
+Lifecycle <|-- ApplicationLifecycle
+RequestManager -right- ApplicationLifecycle
+
+
+interface Lifecycle {
++addListener()
++removeListener()
+}
+
+interface ApplicationLifecycle {
++addListener()
++removeListener()
+}
+
+interface LifecycleListener {
++onStart()
++onStop()
++onDestroy()
+}
+
+class RequestManager {
++onStart()
++onStop()
++onDestroy()
+}
+
+
+
+@enduml

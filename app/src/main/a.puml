@@ -15,28 +15,36 @@ RequestManager -right- ActivityFragmentLifecycle
 
 
 interface Lifecycle {
-addListener()
-removeListener()
++addListener()
++removeListener()
+}
+
+interface ActivityFragmentLifecycle {
++addListener()
++removeListener()
++onStart()
++onStop()
++onDestroy()
 }
 
 interface LifecycleListener {
-onStart()
-onStop()
-onDestroy()
++onStart()
++onStop()
++onDestroy()
 }
 
 class RequestManager {
-onStart()
-onStop()
-onDestroy()
++onStart()
++onStop()
++onDestroy()
 }
 
 class RequestManagerFragment {
-onAttach()
-onDetach()
-onStart()
-onStop()
-onDestroy()
++onAttach()
++onDetach()
++onStart()
++onStop()
++onDestroy()
 }
 
 

@@ -30,7 +30,8 @@ public class GlideActivity extends Activity {
 
     private static final String TAG = GlideActivity.class.getSimpleName();
 
-    private String url = "http://t3.market.mi-img.com/thumbnail/webp/w495h495/MiddleReview/00ac3e4b0f7544d7620e7ad8b90ce47ba41fd6a29";
+    private String url = "https://ts.market.mi-img.com/thumbnail/jpeg/w0q70/AdCenter/0a07f51380be5ffaa66c5fb2e3a77603ad343b983/AdCenter0a07f51380be5ffaa66c5fb2e3a77603ad343b983.jpg";
+//    private String url = "http://www.zzsky.cn/pic/images3/200941528368720.gif";
 
     ImageView imageView;
 
@@ -39,9 +40,9 @@ public class GlideActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_glide);
         imageView = findViewById(R.id.image_view);
-        showLoopAnimation();
+//        showLoopAnimation();
 
-//        showGif();
+        showGif();
     }
 
     private void showLoopAnimation() {
@@ -77,16 +78,8 @@ public class GlideActivity extends Activity {
 
     private void showGif() {
         Glide.with(this)
-                .asGif()
-                .apply(new RequestOptions().format(DecodeFormat.PREFER_RGB_565).disallowHardwareConfig())
                 .load(url)
-                .into(new SimpleTarget<GifDrawable>() {
-                    @Override
-                    public void onResourceReady(@NonNull GifDrawable resource, @Nullable Transition<? super GifDrawable> transition) {
-                        gifDrawable = resource;
-                        handler.post(loop);
-                    }
-                });
+                .into(imageView);
     }
 
 

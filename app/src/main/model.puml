@@ -1,0 +1,14 @@
+@startuml
+
+
+package "Load" {
+(Model)-right-> (Data)
+
+note top of Model : input
+
+(Data) -right-> (Resource)
+
+note bottom of Resource : output
+}
+
+@enduml
