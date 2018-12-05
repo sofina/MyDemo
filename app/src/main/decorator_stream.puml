@@ -1,36 +1,37 @@
 @startuml
 
-class ConcreteComponent
-class Decorator
-class DecoratorA
-class DecoratorB
-interface component
+class FilterOutputStream
+class FileOutputStream
+class BufferedOutputStream
+class DataOutputStream
+interface OutputStream
 
-interface component{
-+operation()
+interface OutputStream{
++write()
 }
 
-class ConcreteComponent{
-+operation()
+class FileOutputStream{
++write()
 }
 
-class Decorator{
-Decorator(Component component)
-+operation()
+class FilterOutputStream{
+FilterOutputStream(OutputStream outputStream)
++write()
 }
 
-class DecoratorA{
-
+class BufferedOutputStream{
+//增加缓冲功能
 }
 
-class DecoratorB{
+class DataOutputStream{
++writeInt(int c)
 }
 
 
-component <|-.- ConcreteComponent
-component <|-.- Decorator
-Decorator <|-- DecoratorA
-Decorator <|-- DecoratorB
+OutputStream <|-.- FileOutputStream
+OutputStream <|-.- FilterOutputStream
+FilterOutputStream <|-- BufferedOutputStream
+FilterOutputStream <|-- DataOutputStream
 
 
 

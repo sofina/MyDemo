@@ -35,7 +35,7 @@ public class ThumbnailModelLoader<Data> implements ModelLoader<String, Data> {
 
     @Override
     public boolean handles(@NonNull String model) {
-        Uri uri = Uri.parse(model.toString());
+        Uri uri = Uri.parse(model);
         String host = uri.getHost();
         if (TextUtils.isEmpty(host)) {
             return false;
